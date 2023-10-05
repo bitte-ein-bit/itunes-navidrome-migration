@@ -18,7 +18,7 @@ I am not sure how it would work on other platforms.
 ## Installation
 1. You can create a Python virtual environment, or not.
 2. Download `itunesPlaylistMigrator.py`, `itunestoND.py` and `requirements.txt` and save to a folder.
-3. `$ pip3 install -r requirements.txt`
+3. `$ pipenv install`
 
 ### Not comfortable with Python?
 Put your database files in a drop box or something and I will migrate your iTunes library for $15. Email me at ylh9hhiaq@mozmail.com. For playlists, I'd send you back a web page with your playlists listed and hotlinked. If you want to keep the playlist, just click on its link and it will get added to Navidrome.
@@ -36,7 +36,7 @@ That said, before running the scripts, I found it very helpful to use Music Brai
 ### Migrating play counts, last played date and song ratings
 1. Shut down your Navidrome server.
 2. Copy the Navidrome database files to the machine with these scripts. In my case there are 3 database files: `navidrome.db`, `navidrome.db-shm` and `navidrome.db-wal` you need any `navidrome.db*` file that you find.
-3. Run the first script: `$python3 itunestoND.py`
+3. Run the first script: `$pipenv run python itunestoND.py`
 4. It will prompt you to type the path to the `navidrome.db` and `Library.xml`
 5. Wait. For large libraries, it can take a few minutes to crunch all the data in `Library.xml`.
 6. When it's done, your Navidrome database files may be collapsed into a single `navidrome.db` file. This is OK.
@@ -51,7 +51,7 @@ I wrote this as an afterthought, so these instructions are a little weird. This 
 1. Backup your Navidrome database like you did for the last script in case something goes wrong.
 2. Make sure your Navidrome server is running.
 3. The previous script generated a file: `IT_file_correlations.py`. Move that file into the same directory where you have `itunesPlaylistMigrator.py` stored.
-4. Run the playlist migrator script: `$ python3 itunesPlaylistMigrator.py`. If your working directory is not the same where `Library.xml` is stored, you will be prompted for the path to `Library.xml`.
+4. Run the playlist migrator script: `$ pipenv run python itunesPlaylistMigrator.py`. If your working directory is not the same where `Library.xml` is stored, you will be prompted for the path to `Library.xml`.
 5. Answer the prompts for your Navidrome username and password.
 6. The script will search for playlists from your iTunes library and prompt if you want to move them to Navidrome.
 
@@ -59,7 +59,7 @@ I wrote this as an afterthought, so these instructions are a little weird. This 
 This script will add metadata to your songs. iTunes doesn't care about metadata in files and stores everything in it's library. Navidrome uses the metadata in the files to build its database. This script will add the metadata from iTunes to the files.
 
 1. Backup your music files.
-2. Run the script: `$ python3 itunesSongMetadata.py`
+2. Run the script: `$ pipenv run python itunesSongMetadata.py`
 3. Sync your files again with Navidrome if you executed this script after you already migrated your library or targeted a different directory.
 
 ## Acknowledgments
